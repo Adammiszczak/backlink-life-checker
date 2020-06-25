@@ -1,0 +1,11 @@
+html
+  head
+    link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous")
+    title= title
+  body
+    div(class='container'): h1= message
+    
+for element in arrOfUrls
+  ul= element['urlOrigin']
+    each val in element['backlinkTexts']
+      li= val
