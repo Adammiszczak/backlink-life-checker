@@ -25,20 +25,35 @@ const yourDomain = "https://yourdomain.com/";
 
     // for loop on urls list
     for (let i = 0; i < numberOfUrls; i++) {
-      await page.goto(urlsArray[i]);
+      const response = await page.goto(urlsArray[i]);
+      const headers = response.headers();
+      await console.log(headers.status);
       // await page.waitFor(1000);
-
       const elements = await page.$$eval(`a[href*="${yourDomain}"]`, elements => elements.map(el => el.innerText));
-      result.push({ urlOrigin: urlsArray[i], backlinkTexts: elements })
+
+      if (headers.status == 404) {
+        result.push({ urlOrigin: urlsArray[i], backlinkTexts: ['Sorry, this url return 404 response'] })
+      } else {
+        if (elements.length == 0) {
+          result.push({ urlOrigin: urlsArray[i], backlinkTexts: ['Sorry, no backlinks on this url'] })
+        } else {
+          result.push({ urlOrigin: urlsArray[i], backlinkTexts: elements });
+        }
+      }
+
+      //  headers.status === 404 ? result.push({ urlOrigin: urlsArray[i], backlinkTexts: ['test','test'] }) : result.push({ urlOrigin: urlsArray[i], backlinkTexts: elements });
+      // result.push({ urlOrigin: urlsArray[i], backlinkTexts: elements });
     }
+
     await browser.close();
     //end for loop
 
     let file = fs.createWriteStream('backlinks-status.txt');
-    file.on('error', function(err) { if (err) console.log('error', err) });
+    file.on('error', function (err) { if (err) console.log('error', err) });
+
     result.forEach((el) => { file.write(`The url: ${el.urlOrigin} returns those backlinks texts: \n${el.backlinkTexts.length === 0 ? "Sorry, no backlinks on this url\n\n" : el.backlinkTexts.join('\n')}\n\n`); });
-    file.end(); 
-    
+    file.end();
+
     exports.result = result;
 
   } catch (error) {

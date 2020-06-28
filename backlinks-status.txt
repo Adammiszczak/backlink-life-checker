@@ -1,32 +1,26 @@
 The url: https://adammiszczak.github.io/posts/ returns those backlinks texts: 
 Sorry, no backlinks on this url
 
-
-
 The url: https://adammiszczak.github.io/testsite/sample-url-1 returns those backlinks texts: 
 Your Super Domain
 https://yourdomain.com/
 
 The url: https://adammiszczak.github.io/testsite/sample-url-1-copy returns those backlinks texts: 
-Sorry, no backlinks on this url
-
-
+Learn More
+Go to our partner!
 
 The url: https://adammiszczak.github.io/testsite/sample-url-2 returns those backlinks texts: 
 https://yourdomain.com/
 Here
 
-The url: https://adammiszczak.github.io/testsite/sample-url-2-copy returns those backlinks texts: 
-Sorry, no backlinks on this url
-
-
+The url: https://adammiszczak.github.io/testsite/sample-url-2-copy54123421 returns those backlinks texts: 
+Sorry, this url return 404 response
 
 The url: https://adammiszczak.github.io/testsite/sample-url-3 returns those backlinks texts: 
 Read more!
 https://www.yourdomain.com/
 
 The url: https://adammiszczak.github.io/testsite/sample-url-3-copy returns those backlinks texts: 
-Sorry, no backlinks on this url
-
-
+Check this super domain!
+https://yourdomain.com/
 

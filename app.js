@@ -16,15 +16,15 @@ app.get('/', (req, res) => {
     }
   })}
   );
-app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));
+app.listen(port, () => console.log(`Backlinks life checker works at http://localhost:${port} with basic info \nHTML version of output is placed at http://localhost:${port}/backlinks-status`));
 
-app.get('/test', function (req, res) {
+app.get('/backlinks-status', function (req, res) {
 
     res.render(__dirname + '/index', { title: 'Hey', message: 'Hello there!', arrOfUrls: scrapperArray.result }, function(err,html) {
       if(err) {
-        res.send('<p>Data scrapping is pending...</p>')
+        res.send('<p>Data scrapping is pending...</p>');
       } else {
-        res.send(html)
+        res.send(html);
       }
     });
     console.log(scrapperArray.result);
