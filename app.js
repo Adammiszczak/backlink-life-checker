@@ -20,7 +20,7 @@ app.listen(port, () => console.log(`Backlinks life checker works at http://local
 
 app.get('/backlinks-status', function (req, res) {
 
-    res.render(__dirname + '/index', { title: 'Hey', message: 'Hello there!', arrOfUrls: scrapperArray.result }, function(err,html) {
+    res.render(__dirname + '/index', { title: 'Hey', message: 'Your backlinks anchor texts!', arrOfUrls: scrapperArray.result }, function(err,html) {
       if(err) {
         res.send('<p>Data scrapping is pending...</p>');
       } else {
