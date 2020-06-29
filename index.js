@@ -27,10 +27,11 @@ const yourDomain = "https://yourdomain.com/";
     for (let i = 0; i < numberOfUrls; i++) {
       const response = await page.goto(urlsArray[i]);
       const headers = response.headers();
-      await console.log(headers.status);
+      await console.log(`${urlsArray[i]} - ${headers.status} server response`);
       // await page.waitFor(1000);
       const elements = await page.$$eval(`a[href*="${yourDomain}"]`, elements => elements.map(el => el.innerText));
 
+      // 404 error handling
       if (headers.status == 404) {
         result.push({ urlOrigin: urlsArray[i], backlinkTexts: ['Sorry, this url return 404 response'] })
       } else {
@@ -41,8 +42,6 @@ const yourDomain = "https://yourdomain.com/";
         }
       }
 
-      //  headers.status === 404 ? result.push({ urlOrigin: urlsArray[i], backlinkTexts: ['test','test'] }) : result.push({ urlOrigin: urlsArray[i], backlinkTexts: elements });
-      // result.push({ urlOrigin: urlsArray[i], backlinkTexts: elements });
     }
 
     await browser.close();

@@ -1,6 +1,3 @@
-The url: https://adammiszczak.github.io/posts returns those backlinks texts: 
-Sorry, no backlinks on this url
-
 The url: https://adammiszczak.github.io/posts/ returns those backlinks texts: 
 Sorry, no backlinks on this url
 
